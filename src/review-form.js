@@ -7,13 +7,11 @@ const ReviewForm = (props) => {
     const getReviewValue = () => document.getElementById(`${props.movieIndex} - review`).value;
 
     return(
-        <form>
-            <div className="form-row">
-                <input id={`${props.movieIndex} - name`} type="text" className="form-control" placeholder="Name"/>
-                <textarea id={`${props.movieIndex} - review`} type="text" className="form-control" placeholder="Review"/>
-                <button className="btn btn-dark form-control" onClick={() => handleUpdate(props.movieIndex, getNameValue(), getReviewValue())}>Submit</button>
-            </div>
-        </form>
+        <div className="form-row">
+            <input id={`${props.movieIndex} - name`} type="text" className="form-control" placeholder="Name"/>
+            <textarea id={`${props.movieIndex} - review`} type="text" className="form-control" placeholder="Review"/>
+            <button className="btn btn-dark form-control" onClick={() => handleUpdate(props.movieIndex, getNameValue(), getReviewValue())}>Submit</button>
+        </div>
     )
 }
 

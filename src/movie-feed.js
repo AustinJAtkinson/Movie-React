@@ -32,13 +32,10 @@ const MovieFeed = () => {
     ])
 
     const updateReviews = (movieIndex, name, review) => {
-        console.log(movieIndex);
-        console.log(name);
-        console.log(review);
         const updatedMovies = movies;
-
         updatedMovies[movieIndex].Reviews.push({Name: name, Review:review});
-        debugger;
+        console.log(updatedMovies);
+       
         setMovies(updatedMovies);
     }
 
@@ -48,7 +45,6 @@ const MovieFeed = () => {
         const updatedMovies = movies;
 
         updatedMovies[movieIndex].Rating = rating;
-        debugger;
         setMovies(updatedMovies);
     }
     
