@@ -12,7 +12,7 @@ const Movies = (props) => {
                 <h5 className="card-title">{movie.Title}</h5>
                 <div className="card-body">
                     <div>Please rate the Movie: <br></br>
-                        <Rating/>
+                        <Rating ratingUpdater={props.ratingUpdater} index={index}/>
                     </div>
                     <br></br>
                     {movie.Reviews && movie.Reviews.length? (<ul className="list-group">Reviews:</ul>):""}
@@ -21,7 +21,7 @@ const Movies = (props) => {
                                 <Review content={review}/>
                         </li>))}
                     <div>Submit a Review:
-                        <ReviewForm/>
+                        <ReviewForm movieIndex={index} reviewUpdater={props.reviewUpdater}/>
                     </div>
                 </div>
             </div>

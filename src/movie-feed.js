@@ -30,11 +30,32 @@ const MovieFeed = () => {
             Reviews:[]
         },
     ])
+
+    const updateReviews = (movieIndex, name, review) => {
+        console.log(movieIndex);
+        console.log(name);
+        console.log(review);
+        const updatedMovies = movies;
+
+        updatedMovies[movieIndex].Reviews.push({Name: name, Review:review});
+        debugger;
+        setMovies(updatedMovies);
+    }
+
+    const updateRating = (movieIndex,  rating) => {
+        console.log(movieIndex);
+        console.log(rating);
+        const updatedMovies = movies;
+
+        updatedMovies[movieIndex].Rating = rating;
+        debugger;
+        setMovies(updatedMovies);
+    }
     
     return(
         <div className="container-fluid">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-                <Movies movies={movies}/>
+                <Movies movies={movies} ratingUpdater={updateRating} reviewUpdater={updateReviews}/>
             </div>
         </div>
     )

@@ -10,11 +10,13 @@ const Rating = (props) => {
         {value: "fiveStar", displayValue: "5"},
     ]
 
+    const handleUpdate = props.ratingUpdater;
+
     return(
         <>
-            {ratingValues.map((rating, index )=> 
-                <div key={index} className="form-check form-check-inline">
-                    <input type='radio' id={rating.value} name='rating' value={rating.value}/> {rating.displayValue}
+            {ratingValues.map((rating, i )=> 
+                <div key={i} className="form-check form-check-inline">
+                    <input onClick={handleUpdate(props.index, rating.value)} type='radio' id={`${props.index}-${rating.value}`} name={`${props.index}-rating`} value={rating.value}/> {rating.displayValue}
                 </div>
             )}
         </>
