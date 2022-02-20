@@ -31,13 +31,18 @@ const MovieFeed = () => {
         },
     ])
 
-    const updateReviews = (movieIndex, name, review) => {
-        const updatedMovies = movies;
-        updatedMovies[movieIndex].Reviews.push({Name: name, Review:review});
-        console.log(updatedMovies);
-       
+    const updateReviews = (movieIndex, Name, Review) => {
+        const updatedMovies = movies.map((movie, i) => {
+          if(movieIndex === i){
+            return {
+                ...movie,
+                Reviews: [...movie.Reviews, { Name, Review }],
+            };
+        }
+        return movie
+        });
         setMovies(updatedMovies);
-    }
+      };
 
     const updateRating = (movieIndex,  rating) => {
         console.log(movieIndex);
